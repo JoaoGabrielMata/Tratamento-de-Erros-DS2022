@@ -7,14 +7,16 @@ inputNumberButton.addEventListener("click", clickNumberButton)
 function clickFileButton() {}
 
 function clickNumberButton() {
-  number = document.getElementById("inputNumber").value
+  document.getElementById("outputNumber").innerHTML = " "
+  number = document.getElementById("inputNumber").value 
   try {
     if (number == "") throw 'Informe um valor'
-    if (number < 5 || number > 10) throw 'Informe um valor entre 5 e 10'
-    document.getElementById("outputNumber").innerHTML = "o número escolhido é " + number
+     number = Number(number)
+    if (number <= 5 || number >= 10) throw 'Informe um valor entre 5 e 10'
   } catch (erro) {
     document.getElementById("outputNumber").innerHTML = erro
+    console.log("Erro " +erro)
   } finally {
-    document.getElementById("outputFinal").innerHTML = 'Continue o cadastro corretamente!'
+    alert("O número escolhido foi " +number)
   }
 }
